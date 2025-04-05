@@ -8,7 +8,14 @@
             "name": "Python: main.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/main.py",
+            "program": "src/mail_stats/__init__.py",
+            "args": [
+                "alert",
+                "--password-file",
+                "${input:password_file}",
+                "${input:title}",
+                "${input:message}"
+            ],
             "console": "integratedTerminal"
         },
         {
@@ -23,6 +30,23 @@
                 "PYTEST_ADDOPTS": "--no-cov",
             },
             "justMyCode": false
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "password_file",
+            "description": "email password file"
+        },
+        {
+            "type": "promptString",
+            "id": "title",
+            "description": "title"
+        },
+        {
+            "type": "promptString",
+            "id": "message",
+            "description": "message"
         }
     ]
 }
